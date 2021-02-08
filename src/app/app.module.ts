@@ -7,18 +7,33 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { AppointmentDetailScreenComponent } from './appointment-detail-screen/appointment-detail-screen.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import {MatTableModule} from '@angular/material/table';
+
+import {AppointmentListService} from './appointment-list.service';
+import {AppointmentTableService} from './appointment-table.service';
+
+import { AppointmentPipe } from './appointment-pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeScreenComponent,
-    AppointmentDetailScreenComponent
+		AppointmentDetailScreenComponent,
+		AppointmentPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+		BrowserAnimationsModule,
+		MatTableModule,
+		HttpClientModule
   ],
-  providers: [],
+  providers: [
+		AppointmentListService,
+		AppointmentTableService
+	],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
