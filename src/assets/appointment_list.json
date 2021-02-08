@@ -3,11 +3,11 @@
 		{
 			"id": 1,
 			"position": 1, 
-			"appointmentDate": "1995-12-17T03:24:00",
+			"appointmentDate": "2020-12-17T03:24:00",
 			"site": "Putney",
 			"with": "Roy Oven",
 			"duration": 30,
-			"status": "Confirmed",
+			"status": true,
 			"claimNo": "1234567",
 			"examination": true,
 			"chargedFee": 0,
@@ -15,12 +15,12 @@
 			"paidWO": 0
 		}, {
 			"id": 2,
-			"position": 1, 
-			"appointmentDate": "1995-12-17T03:24:00",
+			"position": 2, 
+			"appointmentDate": "2020-12-20T05:24:00",
 			"site": "Putney",
 			"with": "Roy Oven",
 			"duration": 30,
-			"status": "Confirmed",
+			"status": true,
 			"claimNo": "1234567",
 			"examination": true,
 			"chargedFee": 0,
@@ -28,17 +28,43 @@
 			"paidWO": 0
 		}, {
 			"id": 3,
-			"position": 1, 
-			"appointmentDate": "1995-12-17T03:24:00",
+			"position": 3, 
+			"appointmentDate": "2020-12-17T18:24:00",
 			"site": "Putney",
 			"with": "Roy Oven",
 			"duration": 30,
-			"status": "Confirmed",
+			"status": true,
 			"claimNo": "1234567",
 			"examination": true,
 			"chargedFee": 1,
 			"invoicedFee": 1,
 			"paidWO": 1
+		}, {
+			"id": 4,
+			"position": 4, 
+			"appointmentDate": "2021-01-01T09:00:00",
+			"site": "Putney",
+			"with": "Roy Oven",
+			"duration": 30,
+			"status": false,
+			"claimNo": "1234567",
+			"examination": false,
+			"chargedFee": 1.114,
+			"invoicedFee": 1,
+			"paidWO": 1
+		}, {
+			"id": 5,
+			"position": 5, 
+			"appointmentDate": "2021-01-10T11:00:00",
+			"site": "Putney",
+			"with": "Roy Oven",
+			"duration": 60,
+			"status": false,
+			"claimNo": "31231",
+			"examination": false,
+			"chargedFee": 1.114,
+			"invoicedFee": 1.20,
+			"paidWO": 3.5
 		}
 	]
 }
