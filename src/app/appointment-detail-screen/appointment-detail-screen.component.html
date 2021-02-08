@@ -1,1 +1,57 @@
-<p>appointment-detail-screen works!</p>
+<h1 class="title">Appointment Detail Page</h1>
+<div *ngIf="appointmentDetail && !errorMessage" class="section_info">
+	<div class="item_info_wrapper">
+		<div class="item_info">
+			<span class="item_title">Position: </span>
+			<span>{{appointmentDetail.position}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Appointment Date: </span>
+			<span>{{appointmentDetail.appointmentDate | appointment:'date'}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Site: </span>
+			<span>{{appointmentDetail.site}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">With: </span>
+			<span>{{appointmentDetail.with}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Duration: </span>
+			<span>{{appointmentDetail.duration}}</span>
+			<span> minutes</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Status: </span>
+			<span>{{appointmentDetail.status | appointment:'status'}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Claim Number: </span>
+			<span>{{appointmentDetail.claimNo}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Examination: </span>
+			<span>{{appointmentDetail.examination | appointment:'examination'}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Charge Fee: </span>
+			<span>{{appointmentDetail.chargedFee | appointment:'money'}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Invoiced Fee: </span>
+			<span>{{appointmentDetail.invoicedFee | appointment:'money'}}</span>
+		</div>
+		<div class="item_info">
+			<span class="item_title">Paid/WO: </span>
+			<span>{{appointmentDetail.paidWO | appointment:'money'}}</span>	
+		</div>
+	</div>
+</div>
+
+<div *ngIf="errorMessage" class="no_appoint_info">
+	Appointment Detail Information does not exist
+</div>
+<div class="loader_container" *ngIf="isLoading">
+	<mat-spinner></mat-spinner>
+</div>
