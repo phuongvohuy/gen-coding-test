@@ -1,1 +1,22 @@
-<p>home-screen works!</p>
+<h1 class="title">Appointment List Page</h1>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef={{columnItem.name}} *ngFor="let columnItem of columnsDataDefinition">
+    <th mat-header-cell *matHeaderCellDef> {{columnItem.header}} </th>
+		<td mat-cell *matCellDef="let element"> {{element[columnItem.reference] | appointment:columnItem.pipe}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef='setting'>
+    <th mat-header-cell *matHeaderCellDef> Setting </th>
+    <td mat-cell *matCellDef="let element">  </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr 
+		mat-row *matRowDef="let row; columns: displayedColumns;"
+		(click)="onChooseRowHandler(row)"></tr>
+</table>
