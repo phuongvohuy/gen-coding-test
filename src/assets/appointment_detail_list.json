@@ -1,0 +1,44 @@
+{
+	"data": [
+		{
+			"id": 1,
+			"position": 1, 
+			"appointmentDate": "Wed 02/12/20 11:30am",
+			"site": "Putney",
+			"with": "Roy Oven",
+			"duration": 30,
+			"status": "Confirmed",
+			"claimNo": "1234567",
+			"examination": true,
+			"chargedFee": 0,
+			"invoicedFee": 0,
+			"paidWO": 0
+		}, {
+			"id": 2,
+			"position": 1, 
+			"appointmentDate": "Wed 02/12/20 11:30am",
+			"site": "Putney",
+			"with": "Roy Oven",
+			"duration": 30,
+			"status": "Confirmed",
+			"claimNo": "1234567",
+			"examination": true,
+			"chargedFee": 0,
+			"invoicedFee": 0,
+			"paidWO": 0
+		}, {
+			"id": 3,
+			"position": 1, 
+			"appointmentDate": "Wed 02/12/20 11:30am",
+			"site": "Putney",
+			"with": "Roy Oven",
+			"duration": 30,
+			"status": "Confirmed",
+			"claimNo": "1234567",
+			"examination": true,
+			"chargedFee": 1,
+			"invoicedFee": 1,
+			"paidWO": 1
+		}
+	]
+}
