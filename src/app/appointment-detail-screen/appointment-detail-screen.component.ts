@@ -17,8 +17,7 @@ export class AppointmentDetailScreenComponent implements OnInit {
 	isLoading: boolean = false;
 
   constructor(
-		private route: ActivatedRoute, 
-		private router: Router, 
+		private route: ActivatedRoute,  
 		private appointmentService: AppointmentListService
 	) { 
 
