@@ -8,8 +8,12 @@ import { AppointmentDetailScreenComponent } from './appointment-detail-screen/ap
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
-
 import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
+import {LayoutModule} from '@angular/cdk/layout';
+import {PlatformModule} from '@angular/cdk/platform';
+import {MatSortModule} from '@angular/material/sort';
 
 import {AppointmentListService} from './appointment-list.service';
 import {AppointmentTableService} from './appointment-table.service';
@@ -28,7 +32,12 @@ import { AppointmentPipe } from './appointment-pipe';
     AppRoutingModule,
 		BrowserAnimationsModule,
 		MatTableModule,
-		HttpClientModule
+		MatProgressSpinnerModule,
+		MatIconModule,
+		HttpClientModule,
+		LayoutModule,
+		PlatformModule,
+		MatSortModule
   ],
   providers: [
 		AppointmentListService,

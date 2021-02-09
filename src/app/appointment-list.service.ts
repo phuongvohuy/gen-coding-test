@@ -15,7 +15,7 @@ export interface Appointment {
   site: string;
 	with: string;
 	duration: number,
-	status: string,
+	status: boolean,
 	claimNo: string,
 	examination: boolean,
 	chargedFee: number,
@@ -32,15 +32,18 @@ export class AppointmentListService {
 		
 	}
 
-	public async retrieveAppointList(): Promise<Appointment[]> {
-		return await this.http.get('./assets/appointment_list.json').pipe(
-			map((result: any) => result.data as Array<Appointment>),
-			delay(2000)
-		).toPromise();
+	public retrieveAppointList(): Observable<Appointment[]> {
+		return this.http.get('./assets/appointment_list.json').pipe(
+			delay(1000),
+			map((result: any) => {
+				return result.data as Array<Appointment>
+			}),
+		);
 	}
 
 	public getAppointmentDetailById(id: number): Observable<Appointment> {
 		return this.http.get('./assets/appointment_detail_list.json').pipe(
+			delay(1000),
 			map((result: any) => {
 				const appointmentList: Array<Appointment> = result.data as Array<Appointment>;
 				const filterList: Array<Appointment> =  appointmentList.filter((appointmentItem: Appointment) => appointmentItem.id === id)

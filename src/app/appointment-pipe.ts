@@ -10,9 +10,9 @@ import * as moment from 'moment';
 })
 export class AppointmentPipe implements PipeTransform {
 
-	transform(value:string, modifier:string) {
+	transform(value:any, modifier:string) {
 		if (!modifier) return value;
-		return eval('this.' + modifier + '(\'' + value + '\')')
+		return eval('this.' + modifier + '(\'' + value.toString() + '\')')
 	}
 
 	date(value: string): string {

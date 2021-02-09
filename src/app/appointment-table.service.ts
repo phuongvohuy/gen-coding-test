@@ -99,7 +99,7 @@ export class AppointmentTableService {
 	}
 
 	public async retrieveDataSource(): Promise<Appointment[]> {
-		return await this.appointmentService.retrieveAppointList();
+		return await this.appointmentService.retrieveAppointList().toPromise();
 	}
 
 	public getDisplayColumns(): Array<string> {
