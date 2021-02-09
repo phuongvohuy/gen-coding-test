@@ -1,22 +1,43 @@
 <h1 class="title">Appointment List Page</h1>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="!isSmallScreen">
+  <!-- Column Definition -->
   <ng-container matColumnDef={{columnItem.name}} *ngFor="let columnItem of columnsDataDefinition">
-    <th mat-header-cell *matHeaderCellDef> {{columnItem.header}} </th>
+		<th mat-header-cell *matHeaderCellDef> {{columnItem.header}} </th>
 		<td mat-cell *matCellDef="let element"> {{element[columnItem.reference] | appointment:columnItem.pipe}} </td>
   </ng-container>
 
+	<!-- Setting columns is statis and not configured in the service but in template -->
   <ng-container matColumnDef='setting'>
-    <th mat-header-cell *matHeaderCellDef> Setting </th>
-    <td mat-cell *matCellDef="let element">  </td>
+    <th mat-header-cell *matHeaderCellDef class="setting-header"> 
+			<mat-icon aria-hidden="false" aria-label="Example home icon" class="setting-icon">settings</mat-icon> 
+		</th>
+    <td mat-cell *matCellDef="let element">
+			<div class="setting-cell" *ngIf="!isMobile">
+				<div class="activated_menu">
+					<span (click)="onEditHandler(element)" class="menu-title edit">Edit</span>
+					<span (click)="onDeleteHandler(element)" class="menu-title delete">Delete</span>
+				</div>
+				<div class="blur_bg"></div>
+			</div>
+			<div class="action_container" *ngIf="isMobile">
+				<mat-icon aria-hidden="false" aria-label="Example home icon" class="setting-icon">read_more</mat-icon> 
+			</div>
+		</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-	<tr 
-		mat-row *matRowDef="let row; columns: displayedColumns;"
-		(click)="onChooseRowHandler(row)"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onChooseRowHandler(row)"></tr>
 </table>
+<div *ngIf="isSmallScreen">
+	<div class="row" *ngFor="let appointment of appointments" (click)="onChooseRowHandler(appointment)">
+		<div class="cell" *ngFor="let columnDef of renderColumns">
+			<span class="header">{{columnDef.header}} </span>
+			<span class="value">{{appointment[columnDef.reference] | appointment:columnDef.pipe}}</span>
+		</div>
+		<mat-icon aria-hidden="false" aria-label="Example home icon" class="setting-icon">read_more</mat-icon>
+	</div>
+</div>
+<div class="loader_container" *ngIf="loading">
+	<mat-spinner></mat-spinner>
+</div>
