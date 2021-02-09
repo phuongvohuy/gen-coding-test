@@ -1,6 +1,6 @@
 <h1 class="title">Appointment List Page</h1>
 
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="!isSmallScreen">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!isSmallScreen">
   <!-- Column Definition -->
   <ng-container matColumnDef={{columnItem.name}} *ngFor="let columnItem of columnsDataDefinition">
 		<th mat-header-cell *matHeaderCellDef> {{columnItem.header}} </th>

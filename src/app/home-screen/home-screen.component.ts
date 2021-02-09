@@ -8,6 +8,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Platform } from '@angular/cdk/platform';
 import { MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
 
 const MAX_WIDTH = '(max-width: 600px)';
 
@@ -55,6 +58,9 @@ export class HomeScreenComponent implements OnInit, AfterViewInit {
 		this.appointments = await this.appointmentTableService.retrieveDataSource();
 		this.dataSource = new MatTableDataSource(this.appointments);
 		
+		// testing for demonstrate show loading
+		await of().pipe(delay(1000)).toPromise();
+
 		this.displayedColumns = this.appointmentTableService.getDisplayColumns();
 		this.columnsDataDefinition = this.appointmentTableService.retrieveAppointmentColumnDefinition();
 		this.renderColumns = this.columnsDataDefinition.filter((item: AppointmentColumn) => {
