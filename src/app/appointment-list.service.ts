@@ -34,7 +34,7 @@ export class AppointmentListService {
 
 	public retrieveAppointList(): Observable<Appointment[]> {
 		return this.http.get('./assets/appointment_list.json').pipe(
-			delay(1000),
+			//delay(1000),
 			map((result: any) => {
 				return result.data as Array<Appointment>
 			}),
@@ -43,7 +43,7 @@ export class AppointmentListService {
 
 	public getAppointmentDetailById(id: number): Observable<Appointment> {
 		return this.http.get('./assets/appointment_detail_list.json').pipe(
-			delay(1000),
+			//delay(1000),
 			map((result: any) => {
 				const appointmentList: Array<Appointment> = result.data as Array<Appointment>;
 				const filterList: Array<Appointment> =  appointmentList.filter((appointmentItem: Appointment) => appointmentItem.id === id)

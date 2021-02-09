@@ -12,7 +12,6 @@ export const PageName = {
 }
 
 export const navigateToAppointmentDetailPage = (router: Router, appointmentId: number) => {
-	console.log('appointmentId ', appointmentId);
 	router.navigate([PageName.APPOINTMENT_DETAIL, appointmentId])
 }
 
